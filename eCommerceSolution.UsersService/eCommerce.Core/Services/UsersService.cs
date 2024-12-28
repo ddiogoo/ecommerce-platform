@@ -13,11 +13,11 @@ internal class UsersService(IUsersRepository usersRepository) : IUsersService
     {
         if(loginRequest?.Email == null || loginRequest.Password == null) return null;
         var user = await _usersRepository.GetUserByEmailAndPasswordAsync(loginRequest.Email, loginRequest.Password);
-        return user == null ? null : new AuthenticationResponse(user.UserId, user.Email, user.Gender, 
-            user.PersonName, "token", Success: true);
+        return user == null ? null : new AuthenticationResponse(user.UserId, user.Email, user.PersonName, 
+            user.Gender, "token", Success: true);
     }
 
-    public async Task<AuthenticationResponse?> Register(RegisterRequest registerRequest)
+    public async Task<AuthenticationResponse?> Register(RegisterRequest? registerRequest)
     {
         var user = await _usersRepository.AddUserAsync(new ApplicationUser
         {
