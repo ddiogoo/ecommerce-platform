@@ -6,4 +6,8 @@ public record AuthenticationResponse(
     string? PersonName,
     string? Gender,
     string? Token,
-    bool Success);
+    bool Success
+    )
+{
+    public AuthenticationResponse() : this(Guid.Empty, null, null, null, null, false) { }
+}
