@@ -22,6 +22,7 @@ public static class DependencyInjectionManager
         // and others components.
         services.AddTransient<IUsersService, UsersService>();
         services.AddValidatorsFromAssemblyContaining<LoginRequestValidator>();
+        services.AddValidatorsFromAssemblyContaining<RegisterRequestValidator>();
         return services;
     }
 }

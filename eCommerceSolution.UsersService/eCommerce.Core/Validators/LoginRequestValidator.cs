@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace eCommerce.Core.Validators;
 
-public class LoginRequestValidator : AbstractValidator<LoginRequest>
+public abstract class LoginRequestValidator : AbstractValidator<LoginRequest>
 {
-    public LoginRequestValidator()
+    protected LoginRequestValidator()
     {
         RuleFor(type => type.Email)
             .NotEmpty().WithMessage("Email is required")
